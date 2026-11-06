@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //Dòng cho kết quả không như mong đợi
+    //Dòng 1: "10" + 5 → "105"
+    //Người viết thường mong đợi 15, nhưng kết quả lại là chuỗi "105".
+    //Nguyên nhân: Toán tử + vừa dùng để cộng số, vừa dùng để nối chuỗi. Khi một vế là chuỗi, JavaScript ngầm ép vế còn lại (5) thành chuỗi "5" rồi nối lại: "10" + "5" = "105".
+    //Dòng 2: "10" - 5 → 5
+    //Dòng này cho kết quả số học “đúng”, nhưng gây bất ngờ vì không nhất quán với dòng 1. Toán tử - không có chức năng nối chuỗi, nên JavaScript luôn ép cả hai vế thành số: 10 - 5 = 5.
+    //Sự khác biệt giữa + và - chính là nguồn gốc của nhiều lỗi logic, vì cùng một chuỗi "10" nhưng bị ép sang kiểu khác nhau tùy toán tử.
+    //Cách viết đúng để tránh lỗi logic
+    //Dòng 1: ép kiểu tường minh trước khi cộng
+
+    //code sửa hoàn chỉnh
+    console.log(Number("10") + 5);
+    console.log(Number("10") - 5);
+    console.log(Number("20"));
+    console.log(String(123));
+    console.log(Boolean(""));
+    console.log(+"123");
+</script>
+</body>
+</html>
