@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let tienDien = 910000;
+        let soKwh = 0;
+        let tongTien = 0;
+
+        // Tính số điện đã sử dụng
+        if (tienDien <= 50 * 1800) {
+            soKwh = tienDien / 1800;
+        } 
+        else if (tienDien <= 100 * 2300) {
+            soKwh = tienDien / 2300;
+        } 
+        else {
+            soKwh = tienDien / 3000;
+        }
+
+        // Tính lại tiền điện theo số kWh
+        if (soKwh <= 50) {
+            tongTien = soKwh * 1800;
+        } 
+        else if (soKwh <= 100) {
+            tongTien = soKwh * 2300;
+        } 
+        else {
+            tongTien = soKwh * 3000;
+        }
+
+        console.log("Tiền điện: " + tienDien.toLocaleString("vi-VN") + " đồng");
+        console.log("Số điện đã sử dụng: " + soKwh.toFixed(2) + " kWh");
+        console.log("Tổng tiền điện: " + tongTien.toLocaleString("vi-VN") + " đồng");
+
+    </script>
+</body>
+</html>

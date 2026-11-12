@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Hệ số chức vụ
+        const heSoChucVu = {
+        intern: 1.0,
+        staff: 1.5,
+        senior: 2.0,
+        manager: 3.0,
+        };
+
+        const LUONG_CO_BAN = 5000000;
+        const NGAY_CONG_QUY_DINH = 24;
+
+        function tinhLuong(chucVu, ngayCong) {
+        const heSo = heSoChucVu[chucVu.toLowerCase().trim()];
+
+        if (heSo === undefined) {
+            throw new Error("Chức vụ không hợp lệ!");
+        }
+        if (ngayCong < 0) {
+            throw new Error("Ngày công không hợp lệ!");
+        }
+
+        return (heSo * ngayCong * LUONG_CO_BAN) / NGAY_CONG_QUY_DINH;
+        }
+
+        // Định dạng tiền VNĐ
+        function formatVND(so) {
+        return Math.round(so).toLocaleString("vi-VN") + "đ";
+        }
+
+        // Ví dụ sử dụng
+        const danhSach = [
+        { ten: "An", chucVu: "intern", ngayCong: 22 },
+        { ten: "Bình", chucVu: "staff", ngayCong: 24 },
+        { ten: "Cường", chucVu: "senior", ngayCong: 20 },
+        { ten: "Dũng", chucVu: "manager", ngayCong: 26 },
+        ];
+
+        danhSach.forEach((nv) => {
+        const luong = tinhLuong(nv.chucVu, nv.ngayCong);
+        console.log(`${nv.ten} (${nv.chucVu}, ${nv.ngayCong} công): ${formatVND(luong)}`);
+        });
+    </script>
+</body>
+</html>
